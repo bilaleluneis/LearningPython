@@ -58,6 +58,6 @@ class Daughter(Mother, Father):
 
 
 # start of running code
-
-son = Son()
-daughter = Daughter()
+if __name__ == "__main__":
+    son = Son()
+    daughter = Daughter()
