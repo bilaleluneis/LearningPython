@@ -39,6 +39,8 @@ class Mother(Female):
         super(Mother, self).__init__()
 
 
+# the reason gender is Male here is because Son instance will look first at get_gender()
+# from Father class as it is first in the sequence of multiple inheritance
 class Son(Father, Mother):
     def __init__(self):
         super(Son, self).__init__()
@@ -46,6 +48,8 @@ class Son(Father, Mother):
         print("Son is of " + gender)
 
 
+# the reason gender is Female here is because Daughter instance will look first at get_gender()
+# from Mother class as it is first in the sequence of multiple inheritance
 class Daughter(Mother, Father):
     def __init__(self):
         super(Daughter, self).__init__()
