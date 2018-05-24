@@ -1,6 +1,6 @@
 
 
-__author__ = "Bilal El Uneis"
+__author__ = "Bilal El Uneis and Jieshu Wang"
 __since__ = "April 2018"
 __email__ = "bilaleluneis@gmail.com"
 
