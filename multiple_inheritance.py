@@ -3,31 +3,27 @@
 # since: April 2018
 # bilaleluneis@gmail.com
 
+"""
+want to try to use this which i saw in youtube video
+super().__init__(properties)
+and this when doing super for 2 types that were inherited
+Father.__init__(self, properties)
+Mother.__init__(self, properties)
+"""
 
 class Human:
-    def __init__(self):
-        print("new Instance of Human created!")
-
-    def get_gender(self):
-        return "No Gender Specified!"
+    def __init__(self, gender=None):
+        print("new Instance of Human created! with gender = {}".format(gender))
 
 
 class Male(Human):
     def __init__(self):
-        print("New Instance of Male Created!")
-        super(Male, self).__init__()
-
-    def get_gender(self):
-        return "Male Gender!"
+        super().__init__("Male")
 
 
 class Female(Human):
     def __init__(self):
-        print("New Instance of Female Created!")
-        super(Female, self).__init__()
-
-    def get_gender(self):
-        return "Female Gender"
+        super().__init__("Female")
 
 
 class Father(Male):
