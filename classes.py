@@ -42,17 +42,19 @@ if __name__ == "__main__":
 
     carOne = Car()
     carOne.type()
-    print("number of gears on the car is {}".format(carOne.gearNumbers))
-
-    print("")
+    print("number of gears on the car is {}\n".format(carOne.gearNumbers))
 
     sportsCar = SportsCar()
     sportsCar.type()
-    print("number of gears on the sports car is {}".format(sportsCar.gearNumbers))
+    print("number of gears on the sports car is {}\n".format(sportsCar.gearNumbers))
 
-    print("")
     carOne.type()
-    print("number of gears on the car is {}".format(carOne.gearNumbers))
+    print("number of gears on the car is {}\n".format(carOne.gearNumbers))
+
+    # creating collection of vehicles
+    vehicles = [carOne, sportsCar]
+    for vehicle in vehicles:
+        vehicle.type()
 
 
 
