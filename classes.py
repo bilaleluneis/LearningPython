@@ -52,9 +52,10 @@ if __name__ == "__main__":
     print("number of gears on the car is {}\n".format(carOne.gearNumbers))
 
     # creating collection of vehicles
+    print("Looping through collection ")
     vehicles = [carOne, sportsCar]
-    for vehicle in vehicles:
-        vehicle.type()
+    for v in vehicles:
+        v.type()
 
 
 
