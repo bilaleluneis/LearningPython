@@ -1,5 +1,5 @@
 
-__author__ = "Bilal El Uneis"
+__author__ = "Bilal El Uneis & Jieshu"
 __since__ = "July 2018"
 __email__ = "bilaleluneis@gmail.com"
 
@@ -23,3 +23,17 @@ if __name__ == "__main__":
     valid_addition = adder(1, 2)
     print("calling adder() with values 1 and 2 passed as parameters resulted in {}".format(valid_addition))
     exception_thrown = adder(1.5, 2.5)  # this will print exception message
+
+#Jieshu is trying
+input_number = input("Enter a positive number.")
+try:
+    ival = int(input_number)
+except:
+    ival = -1
+
+if ival > 0:
+    print('Good job!')
+else:
+    print('Not a positive number.')
+
+print('done.')
