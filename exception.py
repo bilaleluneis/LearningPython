@@ -18,22 +18,21 @@ def adder(number, another_number):
         print("ERROR: {}".format(adder_exception))
 
 
+# Jieshu Wang
+def validate_console_input_is_positive_number():
+    input_number = input("Enter a positive number: ")
+    try:
+        if input_number.isdigit() and int(input_number) > 0:
+            print("Value entered is a positive number .. Good Job!! ")
+        else:
+            raise Exception
+    except Exception as exception:
+        print("Value entered is not a positive number .. Try again !! {}".format(exception))
+
+
 # start of running code
 if __name__ == "__main__":
     valid_addition = adder(1, 2)
     print("calling adder() with values 1 and 2 passed as parameters resulted in {}".format(valid_addition))
     exception_thrown = adder(1.5, 2.5)  # this will print exception message
-
-#Jieshu is trying
-input_number = input("Enter a positive number.")
-try:
-    ival = int(input_number)
-except:
-    ival = -1
-
-if ival > 0:
-    print('Good job!')
-else:
-    print('Not a positive number.')
-
-print('done.')
+    validate_console_input_is_positive_number()
