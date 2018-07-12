@@ -27,8 +27,8 @@ def simple_function():
 # example of what will become a decorator @
 def decorator_function(another_function):
     def wrapper_function():
-        return another_function()
-    return wrapper_function
+        return another_function()  # this will execute another_function
+    return wrapper_function  # this will return reference to wrapper_function
 
 
 # start of running code
