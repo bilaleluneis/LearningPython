@@ -8,6 +8,8 @@ def if_example(name):
 
     if name == "Jieshu":
         for x in name:
+            if x == "s":
+                continue
             print(x)
     else:
         print("Check failed!")
