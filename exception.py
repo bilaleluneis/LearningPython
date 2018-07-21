@@ -29,6 +29,28 @@ def validate_console_input_is_positive_number():
     except Exception as exception:
         print("Value entered is not a positive number .. Try again !! {}".format(exception))
 
+#Jieshu tries again. I know if-else can have the same effect without try-except. Is that what u mean?
+def validate_console_input_is_positive_integer():
+    input_integer = input("enter a positive integer: ")
+    if input_integer.isdigit() and int(input_integer) > 0:
+        print("This is a positive integer. Good Job.")
+    else:
+        print ("Value entered should be a positive integer. Try again!")
+
+#Jieshu: there's a problem. If you enter a decimal number, say 2.1, it supposed to output "Value entered is a float...blabla," but it actually output the except.
+def validate_console_input_is_positive_integer_2():
+    input_integer_2 = input("enter a positive integer: ")
+    try:
+        if int(input_integer_2) > 0:
+            print("Nice job!")
+        elif float(input_integer_2) > 0:
+            print("Value entered is a float, not an integer. Try again!")
+        else:
+            print("Number entered is not positive. Try again!")
+    except:
+        print ("Value entered is not a number. Try again!")
+
+
 
 # start of running code
 if __name__ == "__main__":
@@ -36,3 +58,5 @@ if __name__ == "__main__":
     print("calling adder() with values 1 and 2 passed as parameters resulted in {}".format(valid_addition))
     exception_thrown = adder(1.5, 2.5)  # this will print exception message
     validate_console_input_is_positive_number()
+    validate_console_input_is_positive_integer()
+    validate_console_input_is_positive_integer_2()
