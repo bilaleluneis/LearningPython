@@ -83,6 +83,21 @@ def average_example_jieshu_2(end_num):
 
     print('The final average is ', average_so_far, ', approximately', int(average_so_far))
 
+def search_num_example_jieshu(end_num, search_num):
+
+    print()
+    print('Search for the number of "', search_num, '" example:')
+    found = False
+    for the_num in range(0, end_num):
+        if the_num == search_num:
+            found = True
+        print(the_num, found)
+    if found == False:
+        print('The number of "', search_num, '" is not here.')
+    else:
+        print('We found the number of"', search_num, '"here!')
+
+
 
 # start of running code
 if __name__ == "__main__":
@@ -94,3 +109,4 @@ if __name__ == "__main__":
     sum_up_example_jieshu()
     average_example_jieshu()
     average_example_jieshu_2(18)
+    search_num_example_jieshu(15, 23)
