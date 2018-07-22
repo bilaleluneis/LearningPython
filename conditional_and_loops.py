@@ -28,10 +28,12 @@ def loop_example(counter):
 def find_largest_number_example_jieshu(end_num, num_size):
     find_largest_number_list = np.random.randint(end_num, size=num_size)
     print('\nExample: Find the largest number in the list {}:'.format(find_largest_number_list))
-    largest_num_so_far = 0
+    largest_num_so_far = None
     print('Initially, the largest number is {}'.format(largest_num_so_far))
     for the_num in find_largest_number_list:
-        if the_num > largest_num_so_far:
+        if largest_num_so_far is None:
+            largest_num_so_far = the_num
+        elif the_num > largest_num_so_far:
             largest_num_so_far = the_num
         print('{}, the largest number so far is {}'.format(the_num, largest_num_so_far))
 
