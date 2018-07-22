@@ -26,24 +26,24 @@ def loop_example(counter):
 def find_largest_number_example_jieshu():
     print('\nFind the largest number example:')
     largest_num_so_far = 0
-    print('Initially, the largest number is ', largest_num_so_far)
+    print('Initially, the largest number is {}'.format(largest_num_so_far))
     for the_num in (9, 41, 12, 3, 89, 16):
         if the_num > largest_num_so_far:
             largest_num_so_far = the_num
-        print(the_num, 'the largest number so far is', largest_num_so_far)
+        print('{}, the largest number so far is {}'.format(the_num, largest_num_so_far))
 
-    print('Finally, the largest number is ', largest_num_so_far)
+    print('Finally, the largest number is {}'.format(largest_num_so_far))
 
 
 def sum_up_example_jieshu():
     print('\nSum up example:')
     sum_so_far = 0
-    print('Initially, the sum is ', sum_so_far)
+    print('Initially, the sum is {}'.format(sum_so_far))
     for the_num in (9, 41, 12, 3, 89, 16):
         sum_so_far = sum_so_far + the_num
-        print(the_num, 'The sum so far is ', sum_so_far)
+        print(the_num, '{}, The sum so far is {}'.format(the_num, sum_so_far))
 
-    print('The final sum is ', sum_so_far)
+    print('The final sum is {}'.format(sum_so_far))
 
 
 def average_example_jieshu():
@@ -54,9 +54,9 @@ def average_example_jieshu():
         counter = counter + 1
         sum_so_far = sum_so_far + the_num
         average_so_far = sum_so_far / counter
-        print(the_num, ', the average so far is', average_so_far)
+        print(the_num, '{}, the average so far is {}'.format(the_num, average_so_far))
 
-    print('the final average is ', average_so_far, ', approximately', round(average_so_far))
+    print('the final average is {}, approximately {}'.format(average_so_far, round(average_so_far)))
 
 
 def average_example_jieshu_2(end_num):
@@ -68,13 +68,13 @@ def average_example_jieshu_2(end_num):
         counter = counter + 1
         sum_so_far = sum_so_far + the_num
         average_so_far = sum_so_far / counter
-        print(the_num, ', the average so far is', average_so_far)
+        print('{}, the average so far is {}'.format(the_num, average_so_far))
 
-    print('The final average is ', average_so_far, ', approximately', int(average_so_far))
+    print('The final average is {} approximately {}'.format(average_so_far, int(average_so_far)))
 
 
 def search_num_example_jieshu(end_num, search_num):
-    print('\nSearch for the number of "', search_num, '" example:')
+    print('\nSearch for the number of "{}" example:'.format(search_num))
     found = False
     for the_num in range(0, end_num):
         if the_num == search_num:
@@ -83,7 +83,7 @@ def search_num_example_jieshu(end_num, search_num):
     if found:
         print('We found the number of {} here!'.format(search_num))
     else:
-        print('The number of "', search_num, '" is not here.')
+        print('The number of {} is not here.'.format(search_num))
 
 
 def find_in_list(number_to_find):
@@ -91,7 +91,7 @@ def find_in_list(number_to_find):
     for a_number in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
         if a_number == number_to_find:
             number_found_in_list = a_number
-    print("\nNumber found in list is: ", number_found_in_list)
+    print("\nNumber found in list is: {}".format(number_found_in_list))
 
 
 # start of running code
