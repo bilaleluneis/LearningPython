@@ -66,20 +66,6 @@ def average_example_jieshu(end_num, num_size):
     print('the final average is {}, approximately {}'.format(average_so_far, int(average_so_far)))
 
 
-def average_example_jieshu_2(end_num):
-    print('\nAverage calculation example 2:')
-    counter = 0
-    sum_so_far = 0
-    average_so_far = 0
-    for the_num in range(1, end_num):
-        counter = counter + 1
-        sum_so_far = sum_so_far + the_num
-        average_so_far = sum_so_far / counter
-        print('{}, the average so far is {}'.format(the_num, average_so_far))
-
-    print('The final average is {} approximately {}'.format(average_so_far, int(average_so_far)))
-
-
 def search_num_example_jieshu(end_num, search_num):
     print('\nSearch for the number of "{}" example:'.format(search_num))
     found = False
@@ -101,19 +87,6 @@ def find_in_list(number_to_find):
     print("\nNumber found in list is: {}".format(number_found_in_list))
 
 
-def find_smallest_number_example_jieshu(end_num, num_size):
-    find_smallest_number_list = np.random.randint(end_num, size=num_size)
-    print('\nExample: Find the smallest number in the list {}:'.format(find_smallest_number_list))
-    smallest_num_so_far = None
-    for the_num in find_smallest_number_list:
-        if smallest_num_so_far is None:
-            smallest_num_so_far = the_num
-        elif smallest_num_so_far > the_num:
-            smallest_num_so_far = the_num
-        print('{}, the smallest number so far is {}.'.format(the_num, smallest_num_so_far))
-
-    print('The smallest number in the list is {}.'.format(smallest_num_so_far))
-
 
 # start of running code
 if __name__ == "__main__":
@@ -123,9 +96,7 @@ if __name__ == "__main__":
     find_largest_number_example_jieshu(100, 8)
     sum_up_example_jieshu(50, 8)
     average_example_jieshu(80, 10)
-    average_example_jieshu_2(18)
     search_num_example_jieshu(15, 23)
     search_num_example_jieshu(15, 5)
     find_in_list(10)
     find_in_list(9)
-    find_smallest_number_example_jieshu(80, 10)
