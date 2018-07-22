@@ -31,17 +31,16 @@ def find_largest_number_example_jieshu(end_num, num_size):
     largest_num_so_far = None
     print('Initially, the largest number is {}'.format(largest_num_so_far))
     for the_num in find_largest_number_list:
-        if largest_num_so_far is None:
+        if largest_num_so_far is None or the_num > largest_num_so_far:
             largest_num_so_far = the_num
-        elif the_num > largest_num_so_far:
-            largest_num_so_far = the_num
+
         print('{}, the largest number so far is {}'.format(the_num, largest_num_so_far))
 
     print('Finally, the largest number is {}'.format(largest_num_so_far))
 
 
 def sum_up_example_jieshu(end_num, num_size):
-    sum_up_example_list = np.random.randint(end_num, size = num_size)
+    sum_up_example_list = np.random.randint(end_num, size=num_size)
     print('\nExample: Sum up the number in the list of {}:'.format(sum_up_example_list))
     sum_so_far = 0
     print('Initially, the sum is {}'.format(sum_so_far))
@@ -53,10 +52,11 @@ def sum_up_example_jieshu(end_num, num_size):
 
 
 def average_example_jieshu(end_num, num_size):
-    average_example_list = np.random.randint(end_num, size = num_size)
+    average_example_list = np.random.randint(end_num, size=num_size)
     print('\nExample: Calculate average of the number in the list of {}:'.format(average_example_list))
     counter = 0
     sum_so_far = 0
+    average_so_far = 0
     for the_num in average_example_list:
         counter = counter + 1
         sum_so_far = sum_so_far + the_num
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     if_example("Jieshu")
     find_largest_number_example_jieshu(100, 8)
     sum_up_example_jieshu(50, 8)
-    average_example_jieshu(80,10)
+    average_example_jieshu(80, 10)
     average_example_jieshu_2(18)
     search_num_example_jieshu(15, 23)
     search_num_example_jieshu(15, 5)
