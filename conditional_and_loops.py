@@ -120,7 +120,7 @@ if __name__ == "__main__":
     if_example("Bilal")
     loop_example(20)
     if_example("Jieshu")
-    find_largest_number_example_jieshu(50, 8)
+    find_largest_number_example_jieshu(100, 8)
     sum_up_example_jieshu(50, 8)
     average_example_jieshu(80,10)
     average_example_jieshu_2(18)
