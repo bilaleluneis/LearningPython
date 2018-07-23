@@ -3,7 +3,7 @@ __author__ = "Bilal El Uneis and Jieshu Wang"
 __since__ = "July 2018"
 __email__ = "bilaleluneis@gmail.com"
 
-import numpy as np
+from numpy import random as random_generator
 
 
 def if_example(name):
@@ -26,7 +26,7 @@ def loop_example(counter):
 
 # Jieshu trying
 def find_largest_number_example_jieshu(end_num, num_size):
-    find_largest_number_list = np.random.randint(end_num, size=num_size)
+    find_largest_number_list = random_generator.randint(end_num, size=num_size)
     print('\nExample: Find the largest number in the list {}:'.format(find_largest_number_list))
     largest_num_so_far = None
     print('Initially, the largest number is {}'.format(largest_num_so_far))
@@ -40,7 +40,7 @@ def find_largest_number_example_jieshu(end_num, num_size):
 
 
 def sum_up_example_jieshu(end_num, num_size):
-    sum_up_example_list = np.random.randint(end_num, size=num_size)
+    sum_up_example_list = random_generator.randint(end_num, size=num_size)
     print('\nExample: Sum up the number in the list of {}:'.format(sum_up_example_list))
     sum_so_far = 0
     print('Initially, the sum is {}'.format(sum_so_far))
@@ -52,7 +52,7 @@ def sum_up_example_jieshu(end_num, num_size):
 
 
 def average_example_jieshu(end_num, num_size):
-    average_example_list = np.random.randint(end_num, size=num_size)
+    average_example_list = random_generator.randint(end_num, size=num_size)
     print('\nExample: Calculate average of the number in the list of {}:'.format(average_example_list))
     counter = 0
     sum_so_far = 0
@@ -102,7 +102,7 @@ def find_in_list(number_to_find):
 
 
 def find_smallest_number_example_jieshu(end_num, num_size):
-    find_smallest_number_list = np.random.randint(end_num, size=num_size)
+    find_smallest_number_list = random_generator.randint(end_num, size=num_size)
     print('\nExample: Find the smallest number in the list {}:'.format(find_smallest_number_list))
     smallest_num_so_far = None
     for the_num in find_smallest_number_list:
