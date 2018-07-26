@@ -24,8 +24,7 @@ def loop_example(counter):
             break
 
 
-# Jieshu trying
-def find_largest_number_example_jieshu(end_num, num_size):
+def find_largest_number_example(end_num, num_size):
     find_largest_number_list = random_generator.randint(end_num, size=num_size)
     print('\nExample: Find the largest number in the list {}:'.format(find_largest_number_list))
     largest_num_so_far = None
@@ -39,7 +38,7 @@ def find_largest_number_example_jieshu(end_num, num_size):
     print('Finally, the largest number is {}'.format(largest_num_so_far))
 
 
-def sum_up_example_jieshu(end_num, num_size):
+def sum_up_example(end_num, num_size):
     sum_up_example_list = random_generator.randint(end_num, size=num_size)
     print('\nExample: Sum up the number in the list of {}:'.format(sum_up_example_list))
     sum_so_far = 0
@@ -51,7 +50,7 @@ def sum_up_example_jieshu(end_num, num_size):
     print('The final sum is {}'.format(sum_so_far))
 
 
-def average_example_jieshu(end_num, num_size):
+def average_example(end_num, num_size):
     average_example_list = random_generator.randint(end_num, size=num_size)
     print('\nExample: Calculate average of the number in the list of {}:'.format(average_example_list))
     counter = 0
@@ -66,7 +65,7 @@ def average_example_jieshu(end_num, num_size):
     print('the final average is {}, approximately {}'.format(average_so_far, int(average_so_far)))
 
 
-def search_num_example_jieshu(end_num, search_num):
+def search_num_example(end_num, search_num):
     print('\nSearch for the number of "{}" example:'.format(search_num))
     found = False
     for the_num in range(0, end_num):
@@ -92,10 +91,10 @@ if __name__ == "__main__":
     if_example("Bilal")
     loop_example(20)
     if_example("Jieshu")
-    find_largest_number_example_jieshu(100, 8)
-    sum_up_example_jieshu(50, 8)
-    average_example_jieshu(80, 10)
-    search_num_example_jieshu(15, 23)
-    search_num_example_jieshu(15, 5)
+    find_largest_number_example(100, 8)
+    sum_up_example(50, 8)
+    average_example(80, 10)
+    search_num_example(15, 23)
+    search_num_example(15, 5)
     find_in_list(10)
     find_in_list(9)
