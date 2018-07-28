@@ -1,18 +1,10 @@
 
-__author__ = "Jieshu Wang"
+__author__ = "Bilal El Uneis and Jieshu Wang"
 __since__ = "July 2018"
-__email__ = "foundwonder@gmail.com"
+__email__ = "bilaleluneis@gmail.com and foundwonder@gmail.com"
 
 from numpy import random as random_generator
 from datetime import datetime as timer
-
-# this is the better way to do this.. but will look at it later
-# class TestListsForSorting:
-#
-#     def __init__(self, list_size, end_number):
-#         self.already_sorted_list = list(range(list_size))
-#         self.random_list = random_generator.randint(end_number, size=list_size)
-#         self.reverse_sorted_list = self.already_sorted_list[::-1]
 
 
 # Generate several lists to be sorted and return a tuple
@@ -33,7 +25,7 @@ def sorting_finished_check(list_to_check):
     index = 0
     check = True
     while index < len(list_to_check) - 1:
-        if list_to_check[index] > list_to_check[index + 1] or check == False:
+        if list_to_check[index] > list_to_check[index + 1] or not check:
             check = False
         index = index + 1
     return check
@@ -70,26 +62,28 @@ def bubble_sort_impl_b(list_to_be_sorted):
     return sorted_array
 
 
-def bubble_sort(list_to_be_sorted):
-    print('\nThe list to be sort is {}'.format(list_to_be_sorted))
-    sorting_finished = sorting_finished_check(list_to_be_sorted)
+# Jieshu's bubble sort impl
+def bubble_sort_impl_j(list_to_be_sorted):
+
+    result_list = list(list_to_be_sorted)
+    sorting_finished = sorting_finished_check(result_list)
     while not sorting_finished:
         index = 0
-        while index < len(list_to_be_sorted) - 1:
-            if list_to_be_sorted[index] > list_to_be_sorted[index + 1]:
-                sort_num = list_to_be_sorted[index]
-                list_to_be_sorted.pop(index)
-                list_to_be_sorted.insert(index + 1, sort_num)
+        while index < len(result_list) - 1:
+            if result_list[index] > result_list[index + 1]:
+                sort_num = result_list[index]
+                result_list.pop(index)
+                result_list.insert(index + 1, sort_num)
             index = index + 1
-        sorting_finished = sorting_finished_check(list_to_be_sorted)
-    print("Result after sorting is {}".format(list_to_be_sorted))
+        sorting_finished = sorting_finished_check(result_list)
+    return result_list
 
 
 # start of running code
 if __name__ == "__main__":
-    # lists_for_testing = TestListsForSorting(15, 100)
-    (sorted_list, random_list, reversed_list) = lists_generator(9, 10)
+    (sorted_list, random_list, reversed_list) = lists_generator(100, 30)
 
+    print("-------------Testing Bilal's Bubble Sort Impl-------------")
     start_time = timer.now()
     result_sorted = bubble_sort_impl_b(sorted_list)
     end_time = timer.now()
@@ -104,7 +98,23 @@ if __name__ == "__main__":
     result_random = bubble_sort_impl_b(random_list)
     end_time = timer.now()
     print("list {} was sorted to {} in {} ms".format(random_list, result_random, (end_time - start_time)))
+    print("-------------End of Testing Bilal's Bubble Sort Impl-------------")
 
-    bubble_sort(sorted_list)
-    bubble_sort(random_list)
-    bubble_sort(reversed_list)
+    print()  # creating a new line
+
+    print("-------------Testing Jieshu's Bubble Sort Impl-------------")
+    start_time = timer.now()
+    result_sorted = bubble_sort_impl_j(sorted_list)
+    end_time = timer.now()
+    print("list {} was sorted to {} in {} ms".format(sorted_list, result_sorted, (end_time - start_time)))
+
+    start_time = timer.now()
+    result_reversed = bubble_sort_impl_j(reversed_list)
+    end_time = timer.now()
+    print("list {} was sorted to {} in {} ms".format(reversed_list, result_reversed, (end_time - start_time)))
+
+    start_time = timer.now()
+    result_random = bubble_sort_impl_j(random_list)
+    end_time = timer.now()
+    print("list {} was sorted to {} in {} ms".format(random_list, result_random, (end_time - start_time)))
+    print("-------------End of Testing Jieshu's Bubble Sort Impl-------------")
