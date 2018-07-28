@@ -10,9 +10,6 @@ def lists_generator(end_number, list_size):
     already_sorted_list = list(range(list_size))
     random_list = random_generator.randint(end_number, size=list_size).tolist()
     reverse_sorted_list = already_sorted_list[::-1]
-    print("The first list to sort is already sorted: {}".format(already_sorted_list))
-    print("The second list to sort is random: {}".format(random_list))
-    print("The third list to sort is reversely sorted: {}".format(reverse_sorted_list))
     return already_sorted_list, random_list, reverse_sorted_list
 
 # Check if a list is sorted correctly
@@ -27,6 +24,7 @@ def sorting_finished_check(list_to_check):
 
 
 def bubble_sort(list_to_be_sorted):
+    print('\nThe list to be sort is {}'.format(list_to_be_sorted))
     sorting_finished = sorting_finished_check(list_to_be_sorted)
     while not sorting_finished:
         index = 0
