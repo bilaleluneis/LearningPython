@@ -23,9 +23,20 @@ from datetime import datetime as timer
 # scenarios !
 def lists_generator(end_number, list_size):
     already_sorted_list = list(range(list_size))
-    random_sorted_list = random_generator.randint(end_number, size=list_size)
+    random_sorted_list = random_generator.randint(end_number, size=list_size).tolist()
     reverse_sorted_list = already_sorted_list[::-1]
     return already_sorted_list, random_sorted_list, reverse_sorted_list
+
+
+# Check if a list is sorted correctly
+def sorting_finished_check(list_to_check):
+    index = 0
+    check = True
+    while index < len(list_to_check) - 1:
+        if list_to_check[index] > list_to_check[index + 1] or check == False:
+            check = False
+        index = index + 1
+    return check
 
 
 """
@@ -59,6 +70,21 @@ def bubble_sort_impl_b(list_to_be_sorted):
     return sorted_array
 
 
+def bubble_sort(list_to_be_sorted):
+    print('\nThe list to be sort is {}'.format(list_to_be_sorted))
+    sorting_finished = sorting_finished_check(list_to_be_sorted)
+    while not sorting_finished:
+        index = 0
+        while index < len(list_to_be_sorted) - 1:
+            if list_to_be_sorted[index] > list_to_be_sorted[index + 1]:
+                sort_num = list_to_be_sorted[index]
+                list_to_be_sorted.pop(index)
+                list_to_be_sorted.insert(index + 1, sort_num)
+            index = index + 1
+        sorting_finished = sorting_finished_check(list_to_be_sorted)
+    print("Result after sorting is {}".format(list_to_be_sorted))
+
+
 # start of running code
 if __name__ == "__main__":
     # lists_for_testing = TestListsForSorting(15, 100)
@@ -78,3 +104,7 @@ if __name__ == "__main__":
     result_random = bubble_sort_impl_b(random_list)
     end_time = timer.now()
     print("list {} was sorted to {} in {} ms".format(random_list, result_random, (end_time - start_time)))
+
+    bubble_sort(sorted_list)
+    bubble_sort(random_list)
+    bubble_sort(reversed_list)
