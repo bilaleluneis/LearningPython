@@ -65,10 +65,9 @@ class NewlyDiscoveredAnimal (Animal):
 
 # start of running code
 if __name__ == "__main__":
-    #animal = Animal() # if uncommented this will throw error, you cant create instance of abstract class
-    collectionOfAnimals = [Cat(), Rat(), Dog(), NewlyDiscoveredAnimal()]
+    # animal = Animal() # if uncommented this will throw error, you cant create instance of abstract class
+    collectionOfAnimals: [Animal] = [Cat(), Rat(), Dog(), NewlyDiscoveredAnimal()]
     for animal in collectionOfAnimals:
-        if isinstance(animal, Animal):
-            animal.speak()
+        animal.speak()
 
 
