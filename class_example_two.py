@@ -16,8 +16,13 @@ class Point3D:
 
 
 class Shape3D:
-    def __init__(self, points: [Point3D]):
-        self.__points = points
+    def __init__(self, points: [(int, int, int)]):
+        self.points3D: [Point3D] = []
+        for (x, y, z) in points:
+            self.points3D.append(Point3D(x, y, z))
+
+        # self.__points = points
+        # self.__points: [Point3D]
 
 
 class Sphere(Shape3D):
@@ -31,7 +36,10 @@ class Sphere(Shape3D):
 
 
 def main():
-    Point3D(0, 0, 0)
+    # Point3D(0, 0, 0)
+    shape = Shape3D([(0, 0, 0), (0, 1, 0)])
+    point: Point3D = shape.points3D[0]
+    print(point)
 
 
 # start of running code
