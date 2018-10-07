@@ -22,7 +22,7 @@ class Shape3D:
             self.points3D.append(Point3D(x, y, z))
 
         # self.__points = points
-        # self.__points: [Point3D]
+
 
 
 class Sphere(Shape3D):
