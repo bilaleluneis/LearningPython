@@ -11,35 +11,28 @@ class Point2D:
 
 class Point3D:
     def __init__(self, x_coordinate_3d: int, y_coordinate_3d: int, z_coordinate_3d: int):
-        self.__point2D = Point2D(x_coordinate_3d, y_coordinate_3d)
+        self.__point2D: Point2D = Point2D(x_coordinate_3d, y_coordinate_3d)
         self.__z: int = z_coordinate_3d
 
 
 class Shape3D:
-    def __init__(self, points: [(int, int, int)]):
-        self.points3D: [Point3D] = []
-        for (x, y, z) in points:
-            self.points3D.append(Point3D(x, y, z))
-
-        # self.__points = points
+    def __init__(self, points: [Point3D]):
+        self.__points_3d: [Point3D] = [Point3D] * 0
+        for i in points:
+            self.__points_3d.append(points[i])
 
 
+class Triangle(Shape3D):
 
-class Sphere(Shape3D):
-
-    __sphere_points = [Point3D]
-
-    def __init__(self, center: Point3D, radius: int):
-        super().__init__(Sphere.__sphere_points)
-        self.__center_sphere = center
-        self.__radius_sphere = radius
+    def __init__(self, points_triangle: [Point3D]):
+        super().__init__(points_triangle)
 
 
 def main():
-    # Point3D(0, 0, 0)
-    shape = Shape3D([(0, 0, 0), (0, 1, 0)])
-    point: Point3D = shape.points3D[0]
-    print(point)
+  counter: int = 0
+  points: [Point3D] = [Point3D(0, 0, 0), Point3D(0, 0, 1)]
+  line: Shape3D = Shape3D(points)
+  triangle: Triangle = Triangle([Point3D(0, 0, 0), Point3D(0, 0, 1), Point3D(0, 1, 0)])
 
 
 # start of running code
