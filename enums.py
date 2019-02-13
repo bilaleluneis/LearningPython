@@ -1,4 +1,3 @@
-
 # author: Bilal El Uneis
 # since: April 2018
 # bilaleluneis@gmail.com
@@ -24,6 +23,11 @@ from enum import Enum
 """
 
 
+class Constants(Enum):
+    RASPBERRY_PI: str = "RP"
+    TINKER_BOARD: str = "TB"
+
+
 class Colors(Enum):
     unknown_color = ()  # empty tuple
     blue = "blue"
@@ -44,9 +48,14 @@ class Colors(Enum):
         return Colors.unknown_color  # exited loop and no match found
 
 
-# start of running code
-if __name__ == "__main__":
-
+def main():
+    print(Constants.RASPBERRY_PI)
+    # uncomment bellow to see error !
+    # Constants.RASPBERRY_PI = "BPI"
     what_color_am_i = Colors.red + Colors.yellow
     print(what_color_am_i)
 
+
+# start of running code
+if __name__ == "__main__":
+    main()
