@@ -2,7 +2,7 @@
 # since: April 2018
 # bilaleluneis@gmail.com
 
-from enum import Enum
+from enum import Enum, unique
 
 """
     Few interesting things I learned as I struggled with this
@@ -23,9 +23,11 @@ from enum import Enum
 """
 
 
+@unique
 class Constants(Enum):
     RASPBERRY_PI: str = "RP"
     TINKER_BOARD: str = "TB"
+    BANANA_PI: str = "BP"  # if you change this to RP, you will get error because of the @unique decorator
 
 
 class Colors(Enum):
