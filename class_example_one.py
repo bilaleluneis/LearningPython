@@ -16,7 +16,7 @@ class Human:
 
     def __init__(self, name="Un-named"):
         # to access class level property , use the class name or cls
-        Human.__population = Human.__population + 1
+        Human.__population += 1
         """
         this is instance level property , each instance of this class will have its own
         also notice the one _ , this makes this property a protected access level
