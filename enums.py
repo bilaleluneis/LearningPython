@@ -1,9 +1,8 @@
-
 # author: Bilal El Uneis
 # since: April 2018
 # bilaleluneis@gmail.com
 
-from enum import Enum
+from enum import Enum, unique
 
 """
     Few interesting things I learned as I struggled with this
@@ -22,6 +21,13 @@ from enum import Enum
     
     I still have mixed feelings about this language, but I can see how flexible it can be.
 """
+
+
+@unique
+class Constants(Enum):
+    RASPBERRY_PI: str = "RP"
+    TINKER_BOARD: str = "TB"
+    BANANA_PI: str = "BP"  # if you change this to RP, you will get error because of the @unique decorator
 
 
 class Colors(Enum):
@@ -44,9 +50,14 @@ class Colors(Enum):
         return Colors.unknown_color  # exited loop and no match found
 
 
-# start of running code
-if __name__ == "__main__":
-
+def main():
+    print(Constants.RASPBERRY_PI)
+    # uncomment bellow to see error !
+    # Constants.RASPBERRY_PI = "BPI"
     what_color_am_i = Colors.red + Colors.yellow
     print(what_color_am_i)
 
+
+# start of running code
+if __name__ == "__main__":
+    main()
