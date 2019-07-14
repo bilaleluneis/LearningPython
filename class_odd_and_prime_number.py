@@ -135,49 +135,17 @@ class OddPrimeNumber(OddNumber, PrimeNumber):
 class Number:
 
     def __init__(self, number):
-        self.odd: OddNumber = None
-        self.even: EvenNumber = None
-        self.prime: PrimeNumber = None
-        self.number: [Integer] = [self.odd, self.even, self.prime]
-        for a_number in self.number:
+        classes = [OddNumber, EvenNumber, PrimeNumber]
+        number_type = []
+        for i in classes:
             try:
-                a_number = type(a_number)(number)
+                i(number)
+                number_type.append(i.__name__)
             except Exception:
                 pass
 
-        try:
-            self.odd = OddNumber(number)
-        except Exception:
-            pass
-        try:
-            self.even = EvenNumber(number)
-        except Exception:
-            pass
-        try:
-            self.prime = PrimeNumber(number)
-        except Exception:
-            pass
         self.__number = number
 
     @property
     def value(self):
         return self.__number
-
-
-    # except Exception as exception:
-    #     if type(exception) in exception_list:
-    #         self.__number = number
-    #         # it stops initializing
-    #     else:
-    #         raise Exception("Input is not valid. Try again.")
-
-
-
-        # exception_list = []
-        # for super_class in list(Number.__bases__):
-        #     try:
-        #         super_class.__init__(self, number)
-        #         # exception_scope = super_class.__name__
-        #         # exception_name = "InputIsNot{}Exception".format(exception_scope)
-        #     except Exception as exception_name:
-        #         exception_list.append(exception_name)
