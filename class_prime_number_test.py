@@ -24,6 +24,19 @@ class IntegerTest(TestCase):
     def test_get_next(self):
         test_next = Integer(5)
         self.assertEqual(test_next.next, 6)
+        self.assertEqual(test_next.value, 5)
+
+    # def test_get_next_order(self):
+    #     test_get_next_order = Integer(5)
+    #     test_dic = {1: 6, 2: 7, 3: 8, 4: 9}
+    #     for i, j in test_dic:
+    #         with self.subTest(i):
+    #             self.assertEqual(test_get_next_order.next_order(i), j)
+
+    def test_get_next_order(self):
+        test_get_next_order = Integer(5)
+        self.assertEqual(test_get_next_order.next_order(3), 8)
+        self.assertEqual(test_get_next_order.value, 5)
 
 
 class OddNumberTest(TestCase):
@@ -39,7 +52,7 @@ class OddNumberTest(TestCase):
         self.assertEqual(test_odd_number.value, 5)
 
     def test_input_even_number(self):
-        self.assertRaises(InputIsEvenNumberException, OddNumber, 6)
+        self.assertRaises(InputIsNotOddNumberException, OddNumber, 6)
 
     def test_input_float(self):
         self.assertRaises(InputIsFloatException, OddNumber, 1.5)
@@ -53,6 +66,45 @@ class OddNumberTest(TestCase):
     def test_get_next(self):
         test_next_value = OddNumber(7)
         self.assertEqual(test_next_value.next, 9)
+        self.assertEqual(test_next_value.value, 7)
+
+    def test_get_next_order(self):
+        test_get_next_order = OddNumber(11)
+        self.assertEqual(test_get_next_order.next_order(2), 15)
+
+
+class EvenNumberTest(TestCase):
+
+    def setUp(self) -> None:
+        print("\nEven number unittest starts!")
+
+    def tearDown(self) -> None:
+        print("Even number unittest end!")
+
+    def test_input_even_number(self):
+        test_even_number = EvenNumber(4)
+        self.assertEqual(test_even_number.value, 4)
+
+    def test_input_odd_number(self):
+        self.assertRaises(InputIsNotEvenNumberException, EvenNumber, 7)
+
+    def test_input_float(self):
+        self.assertRaises(InputIsFloatException, EvenNumber, 1.5)
+
+    def test_input_other_type(self):
+        other_type_testing_set = ["hello", True, 2 < 1, [1, 2]]
+        for i in other_type_testing_set:
+            with self.subTest(i):
+                self.assertRaises(Exception, EvenNumber, i)
+
+    def test_get_next(self):
+        test_next_value = EvenNumber(8)
+        self.assertEqual(test_next_value.next, 10)
+        self.assertEqual(test_next_value.value, 8)
+
+    def test_get_next_order(self):
+        test_get_next_order = EvenNumber(10)
+        self.assertEqual(test_get_next_order.next_order(2), 14)
 
 
 class PrimeNumberTest(TestCase):
@@ -62,7 +114,7 @@ class PrimeNumberTest(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.__test_prime_number_set = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-        cls.__test_none_prime_number_set = [6, 4, 8, 9, 25, 88]
+        cls.__test_none_prime_number_set = [1, 6, 4, 8, 9, 25, 88]
 
     def setUp(self) -> None:
         print("\nPrime number unittest starts!")
@@ -82,7 +134,7 @@ class PrimeNumberTest(TestCase):
     def test_input_not_prime_number(self):
         self.assertRaises(InputIsNotPrimeNumberException, PrimeNumber, 6)
 
-    def test_input_random_number_sequence(self):
+    def test_input_not_prime_number_sequence(self):
         for i in PrimeNumberTest.__test_none_prime_number_set:
             with self.subTest(i):
                 self.assertRaises(InputIsNotPrimeNumberException, PrimeNumber, i)
@@ -90,3 +142,34 @@ class PrimeNumberTest(TestCase):
     def test_get_next(self):
         test_next_value = PrimeNumber(7)
         self.assertEqual(test_next_value.next, 11)
+        self.assertEqual(test_next_value.value, 7)
+
+    def test_get_next_order(self):
+        test_get_next_order = PrimeNumber(2)
+        self.assertEqual(test_get_next_order.next_order(2), 5)
+
+
+class OddPrimeNumberTest (TestCase):
+
+    def setUp(self) -> None:
+        print("\nOdd prime number unittest starts!")
+
+    def tearDown(self) -> None:
+        print("Odd prime number unittest ends!")
+
+    def test_input_odd_prime_number(self):
+        test_instance = OddPrimeNumber(3)
+        self.assertEqual(test_instance.value, 3)
+
+    # when passing 4, which is neither an odd nor a prime number,
+    # it raises InputIsNotPrimeNumberException,
+    # even though OddPrimeNumber inherits from OddNumber first,
+    # because of the MRO, OddNumber init is called first, then
+    # before OddNumber._validator been called, PrimeNumber init is called,
+    # then Integer init, PrimeNumber._validator (where InputIsNotPrimeNumberException is raised).
+    def test_input_even_number(self):
+        self.assertRaises(InputIsNotPrimeNumberException, OddPrimeNumber, 4)
+
+    # when passing 2, PrimeNumber._validator is passed, so it raises InputIsNotOddNumberException
+    def test_input_2(self):
+        self.assertRaises(InputIsNotOddNumberException, OddPrimeNumber, 2)
