@@ -38,6 +38,17 @@ class IntegerTest(TestCase):
         self.assertEqual(test_get_next_order.next_order(3), 8)
         self.assertEqual(test_get_next_order.value, 5)
 
+    def test_add_two_integer(self):
+        first_integer_instance = Integer(5)
+        second_integer = 7
+        addition = first_integer_instance + second_integer
+        self.assertEqual(addition.value, 12)
+
+    def test_iadd(self):
+        iadd_instance = Integer(10)
+        iadd_instance += 3
+        self.assertEqual(iadd_instance, 13)
+
 
 class OddNumberTest(TestCase):
 
@@ -72,6 +83,12 @@ class OddNumberTest(TestCase):
         test_get_next_order = OddNumber(11)
         self.assertEqual(test_get_next_order.next_order(2), 15)
 
+    def test_iadd(self):
+        iadd_test_instance = OddNumber(15)
+        second_number = 3
+        iadd_test_instance += second_number
+        self.assertEqual(iadd_test_instance, 21)
+
 
 class EvenNumberTest(TestCase):
 
@@ -105,6 +122,12 @@ class EvenNumberTest(TestCase):
     def test_get_next_order(self):
         test_get_next_order = EvenNumber(10)
         self.assertEqual(test_get_next_order.next_order(2), 14)
+
+    def test_iadd(self):
+        iadd_test_instance = EvenNumber(20)
+        second_number = 3
+        iadd_test_instance += second_number
+        self.assertEqual(iadd_test_instance, 26)
 
 
 class PrimeNumberTest(TestCase):
@@ -147,6 +170,12 @@ class PrimeNumberTest(TestCase):
     def test_get_next_order(self):
         test_get_next_order = PrimeNumber(2)
         self.assertEqual(test_get_next_order.next_order(2), 5)
+
+    def test_iadd(self):
+        iadd_test_instance = PrimeNumber(17)
+        second_number = 3
+        iadd_test_instance += second_number
+        self.assertEqual(iadd_test_instance, 29)
 
 
 class OddPrimeNumberTest (TestCase):
