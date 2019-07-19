@@ -2,6 +2,15 @@ __author__ = "Bilal El Uneis & Jieshu Wang"
 __since__ = "July 2019"
 __email__ = "foundwonder@gmail.com"
 
+"""
+this example contains examples of:
+objects, inheritance, multiple inheritance, composition,
+operator overloading, unittest, exception handling, etc.
+
+Note: MRO (method resolution order) is from shallow to deep, from left to right.
+
+"""
+
 
 class InputIsFloatException(Exception):
     pass
@@ -61,6 +70,12 @@ class Integer(object):
             i += 1
             result = next_number
         return result
+
+    def __add__(self, other):
+        return Integer(self.value + other)
+
+    def __iadd__(self, other=1):
+        return self.next_order(other)
 
 
 class InputIsNotOddNumberException(Exception):
