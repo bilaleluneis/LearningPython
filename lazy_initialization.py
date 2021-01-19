@@ -33,6 +33,11 @@ class MyCallable:
     def __call__(self) -> int:
         return self.__i + 100
 
+    @lru_cache
+    @property
+    def get(self):
+        pass
+
 
 def gen() -> Dict[str, MyCallable]:
     a_dict = {}
@@ -43,7 +48,5 @@ def gen() -> Dict[str, MyCallable]:
 
 if __name__ == "__main__":
     result = gen()
-    print(result['1']())
+    print(result['1'].get)
     print(result['2']())
-
-
